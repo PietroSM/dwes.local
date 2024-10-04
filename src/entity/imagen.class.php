@@ -3,7 +3,7 @@ class imagen{
     const RUTA_IMAGENES_PORTFOLIO = '/public/images/index/portfolio/';
     const RUTA_IMAGENES_GALERIA = '/public/images/index/gallery/';
     const RUTA_IMAGENES_CLIENTES = '/public/images/clients/';
-
+    const RUTA_IMAGENES_SUBIDAS ='/public/images/galeria/';
 
     private $id;
     private $nombre;
@@ -83,6 +83,9 @@ class imagen{
     }
     public function getUrlClientes(){
         return self::RUTA_IMAGENES_CLIENTES.$this->getNombre();
+    }
+    public function getUrlSubidas(){
+        return self::RUTA_IMAGENES_SUBIDAS.$this->getNombre();
     }
 
 
