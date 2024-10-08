@@ -38,6 +38,11 @@ require_once __DIR__ . '/../../src/utils/utils.class.php';
               <?php if (Utils::esOpcionMenuActiva('/galeria.php')==true || Utils::esOpcionMenuActiva('/')==true)
                 echo '<li class="active lien">'; else echo '<li class=”0lien”>';?>
               <a href="galeria.php">Galeria</a></li>
+
+              <?php if (Utils::esOpcionMenuActiva('/Asociados.php')==true || Utils::esOpcionMenuActiva('/')==true)
+                echo '<li class="active lien">'; else echo '<li class=”0lien”>';?>
+              <a href="Asociados.php">Asociados</a></li>
+
             </ul>
          </div>
      </div>
