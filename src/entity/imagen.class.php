@@ -16,7 +16,7 @@ class imagen{
 
     public function __construct($nombre="", $descripcion="", $categoria="", 
         $numVisualizaciones=0, $numLikes=0, $numDownloads=0){
-        $this->id = 0;
+        $this->id = null;
         $this->nombre = $nombre;
         $this->descripcion  = $descripcion;
         $this->categoria = $categoria;
