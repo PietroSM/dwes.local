@@ -2,10 +2,14 @@
 require_once __DIR__ . '/../src/entity/file.class.php';
 require_once __DIR__ . '/../src/exceptions/fileException.class.php';
 require_once __DIR__ . '/../src/entity/imagen.class.php';
-require_once __DIR__.'/../src/database/connection.class.php';
+require_once __DIR__ . '/../src/database/connection.class.php';
+require_once __DIR__ . '/../src/database/QueryBuilder.class.php';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    try {
+
+
+try {
+    $conexion = Connection::make();
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $titulo = trim(htmlspecialchars($_POST['titulo']));
         $descripcion = trim(htmlspecialchars($_POST['descripcion']));
         $tiposAceptados = ['image/jpeg', 'image/gif', 'image/png'];
@@ -14,7 +18,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // $mensaje = "Datos enviados";
 
 
-        $conexion = Connection::make();
         $sql = "INSERT INTO imagenes (nombre, descripcion, categoria) VALUES (:nombre,:descripcion,:categoria)";
         $pdoStatement = $conexion->prepare($sql);
         $parametros = [
@@ -28,17 +31,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $descripcion = "";
             $mensaje = "Se ha guardado la imagen correctamente";
         }
-
-
-
-    } catch (fileException $fileException) {
-        $errores[] = $fileException->getMessage();
+    } else {
+        $errores = [];
+        $titulo = "";
+        $descripcion = "";
+        $mensaje = "";
     }
-} else {
-    $errores = [];
-    $titulo = "";
-    $descripcion = "";
-    $mensaje = "";
+
+    $queryBuilder = new QueryBuilder($conexion);
+    $imagenes = $queryBuilder->findAll('imagenes', 'Imagen');
+} catch (fileException $fileException) {
+    $errores[] = $fileException->getMessage();
+} catch (QueryException $queryException) {
+    $errores[] = $fileException->getMessage();
 }
+
 
 require_once __DIR__ . '/views/galeria.view.php';
