@@ -4,11 +4,27 @@ require_once __DIR__ . '/../src/exceptions/fileException.class.php';
 require_once __DIR__ . '/../src/entity/imagen.class.php';
 require_once __DIR__ . '/../src/database/connection.class.php';
 require_once __DIR__ . '/../src/database/QueryBuilder.class.php';
+require_once __DIR__.'/../src/repository/imagenesRepository.php';
 
-
+$errores = [];
+$titulo = "";
+$descripcion = "";
+$mensaje = "";
 
 try {
-    $conexion = Connection::make();
+    $config = require __DIR__ . '/../app/config.php';
+    App::bind('config', $config); // Guardamos la configuración en el contenedor de servicios
+    $conexion = App::getConnection();
+
+    //$queryBuilder = new QueryBuilder('imagenes', 'Imagen');
+    $imagenesRepository = new ImagenesRepository();
+
+
+    // $imagenes = $queryBuilder->findAll();
+    $imagenes = $imagenesRepository->findAll();
+
+    // $conexion = Connection::make();
+    // $conexion = Connection::make($config['database']);
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $titulo = trim(htmlspecialchars($_POST['titulo']));
         $descripcion = trim(htmlspecialchars($_POST['descripcion']));
@@ -17,33 +33,29 @@ try {
         $imagen->saveUploadFile(imagen::RUTA_IMAGENES_SUBIDAS);
         // $mensaje = "Datos enviados";
 
+        $imagenGaleria = new Imagen($imagen->getFileName(), $descripcion);
+        // $queryBuilder->save($imagenGaleria);
+        $imagenesRepository->save($imagenGaleria);
 
-        $sql = "INSERT INTO imagenes (nombre, descripcion, categoria) VALUES (:nombre,:descripcion,:categoria)";
-        $pdoStatement = $conexion->prepare($sql);
-        $parametros = [
-            ':nombre' => $imagen->getFileName(),
-            ':descripcion' => $descripcion,
-            ':categoria' => '1'
-        ];
-        if ($pdoStatement->execute($parametros) === false)
-            $errores[] = "No se ha podido guardar la imagen en la base de datos";
-        else {
-            $descripcion = "";
-            $mensaje = "Se ha guardado la imagen correctamente";
-        }
-    } else {
-        $errores = [];
-        $titulo = "";
-        $descripcion = "";
-        $mensaje = "";
+
+        $mensaje = "Se ha guardado la imagen correctamente";
+        // $imagenes = $queryBuilder->findAll();
+        $imagenes = $imagenesRepository->findAll();
     }
 
-    $queryBuilder = new QueryBuilder($conexion);
-    $imagenes = $queryBuilder->findAll('imagenes', 'Imagen');
+    // $queryBuilder = new QueryBuilder();
+    // $queryBuilder = new QueryBuilder('imagenes', 'Imagen');
+    $imagenesRepository = new ImagenesRepository();
+    // $queryBuilder = new QueryBuilder($conexion);
+    // $imagenes = $queryBuilder->findAll('imagenes', 'Imagen');
+    // $imagenes = $queryBuilder->findAll();
+    $imagenes = $imagenesRepository->findAll();
 } catch (fileException $fileException) {
     $errores[] = $fileException->getMessage();
 } catch (QueryException $queryException) {
     $errores[] = $fileException->getMessage();
+} catch (AppException $appException) {
+    $errores[] = $appException->getMessage();
 }
 
 

@@ -1,5 +1,8 @@
 <?php
-class imagen
+
+require_once 'imagen.class.php';
+require_once 'IEntity.php';
+class imagen implements IEntity
 {
     const RUTA_IMAGENES_PORTFOLIO = '/public/images/index/portfolio/';
     const RUTA_IMAGENES_GALERIA = '/public/images/index/gallery/';
@@ -119,5 +122,18 @@ class imagen
     public function __toString()
     {
         return $this->getDescripcion();
+    }
+
+    public function toArray(): array
+    {
+        return [
+            'id' => $this->getId(),
+            'nombre' => $this->getNombre(),
+            'descripcion' => $this->getDescripcion(),
+            'numVisualizaciones' => $this->getNumVisualizaciones(),
+            'numLikes' => $this->getNumLikes(),
+            'numDownloads' => $this->getNumDownloads(),
+            'categoria' => $this->getCategoria()
+        ];
     }
 }

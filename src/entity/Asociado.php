@@ -1,5 +1,7 @@
 <?php
-class Asociado{
+require_once __DIR__.'/../entity/IEntity.php';
+
+class Asociado implements IEntity{
 
     private $id;
     private $nombre;
@@ -52,5 +54,15 @@ class Asociado{
     public function __toString()
     {
         return $this->getDescripcion();
+    }
+
+    public function toArray(): array
+    {
+        return [
+            'id' => $this->getId(),
+            'nombre' => $this->getNombre(),
+            'descripcion' => $this->getDescripcion(),
+            'Logo' => $this->getLogo()
+        ];
     }
 }

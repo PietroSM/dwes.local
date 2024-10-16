@@ -52,6 +52,30 @@ require_once __DIR__ . '/inicio.part.php';
     </form>
     <hr class="divider">
     <div class="imagenes_galeria">
+    <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Imagen</th>
+                            <th scope="col">Descripcion</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($asociados as $asociado) : ?>
+                            <tr>
+                                <th scope="row"><?= $asociado->getId() ?></th>
+                                <td>
+                                    <img src="<?= $asociado->getUrlAsociado() ?>"
+                                        alt="<?= $asociado->getDescripcion() ?>"
+                                        title="<?= $asociado->getDescripcion() ?>"
+                                        width="100px">
+                                </td>                                
+                                <td><?= $asociado->getDescripcion() ?></td>
+
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
     </div>
     </div>
     </div>
