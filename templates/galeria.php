@@ -41,7 +41,7 @@ try {
 
         $imagenGaleria = new Imagen($imagen->getFileName(), $descripcion,$categoria);
         // $queryBuilder->save($imagenGaleria);
-        $imagenesRepository->save($imagenGaleria);
+        $imagenesRepository->guarda($imagenGaleria);
 
 
         $mensaje = "Se ha guardado la imagen correctamente";
