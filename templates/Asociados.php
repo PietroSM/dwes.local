@@ -91,8 +91,9 @@ try {
 
             $mensaje = "Se ha guardado la imagen correctamente";
 
-            $asociadosRepositoy = new AsociadosRepository();
+
             $asociados = $asociadosRepositoy->findAll();
+            $asociadosRepositoy = new AsociadosRepository();
             }
         }
     }

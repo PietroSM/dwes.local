@@ -49,6 +49,17 @@ require_once __DIR__ . '/navegacion.part.php';
                 </div>
                 <div class="form-group">
                     <div class="col-xs-12">
+                        <label class="label-control">Categoria</label>
+                        <select class="form-control" name="categoria">
+                            <?php foreach ($categorias as $categoria) : ?>
+                                <option value="<?= $categoria->getId() ?>"><?= $categoria->getNombre() ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-xs-12">
                         <label class="label-control">Titulo</label>
                         <input type="text" class="form-control" id="titulo" name="titulo" value="<?= $titulo ?> ">
                         <label class="label-control">Descripción</label>
@@ -67,6 +78,7 @@ require_once __DIR__ . '/navegacion.part.php';
                             <th scope="col">Visualizaciones</th>
                             <th scope="col">Likes</th>
                             <th scope="col">Descargas</th>
+                            <th scope=”col”>Categoria</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -82,6 +94,8 @@ require_once __DIR__ . '/navegacion.part.php';
                                 <td><?= $imagen->getNumVisualizaciones() ?></td>
                                 <td><?= $imagen->getNumLikes() ?></td>
                                 <td><?= $imagen->getNumDownloads() ?></td>
+                                <!-- <td><?= $imagen->getCategoria() ?></td> -->
+                                <td><?= $imagenesRepository->getCategoria($imagen)->getNombre()?></td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>

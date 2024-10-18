@@ -4,7 +4,9 @@ require_once __DIR__ . '/../src/exceptions/fileException.class.php';
 require_once __DIR__ . '/../src/entity/imagen.class.php';
 require_once __DIR__ . '/../src/database/connection.class.php';
 require_once __DIR__ . '/../src/database/QueryBuilder.class.php';
-require_once __DIR__.'/../src/repository/imagenesRepository.php';
+require_once __DIR__ . '/../src/repository/imagenesRepository.php';
+require_once __DIR__ . '/../src/repository/categoriaRepository.php';
+require_once __DIR__.'/../src/entity/Categoria.class.php';
 
 $errores = [];
 $titulo = "";
@@ -23,9 +25,13 @@ try {
     // $imagenes = $queryBuilder->findAll();
     $imagenes = $imagenesRepository->findAll();
 
+    $categoriaRepository = new categoriaRepository();
+    $categorias = $categoriaRepository->findAll();
+
     // $conexion = Connection::make();
     // $conexion = Connection::make($config['database']);
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $categoria = trim(htmlspecialchars($_POST['categoria']));
         $titulo = trim(htmlspecialchars($_POST['titulo']));
         $descripcion = trim(htmlspecialchars($_POST['descripcion']));
         $tiposAceptados = ['image/jpeg', 'image/gif', 'image/png'];
@@ -33,7 +39,7 @@ try {
         $imagen->saveUploadFile(imagen::RUTA_IMAGENES_SUBIDAS);
         // $mensaje = "Datos enviados";
 
-        $imagenGaleria = new Imagen($imagen->getFileName(), $descripcion);
+        $imagenGaleria = new Imagen($imagen->getFileName(), $descripcion,$categoria);
         // $queryBuilder->save($imagenGaleria);
         $imagenesRepository->save($imagenGaleria);
 
@@ -56,7 +62,7 @@ try {
     $errores[] = $fileException->getMessage();
 } catch (AppException $appException) {
     $errores[] = $appException->getMessage();
-}
+} 
 
 
 require_once __DIR__ . '/views/galeria.view.php';

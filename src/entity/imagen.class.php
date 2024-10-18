@@ -24,10 +24,10 @@ class imagen implements IEntity
     public function __construct(
         $nombre = "",
         $descripcion = "",
-        $categoria = "",
+        $categoria = 1,
         $numVisualizaciones = 0,
         $numLikes = 0,
-        $numDownloads = 0
+        $numDownloads = 0,
     ) {
         $this->id = null;
         $this->nombre = $nombre;
