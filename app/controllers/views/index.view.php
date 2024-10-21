@@ -61,8 +61,8 @@
         ?>
         <!-- End of second category pictures -->
 
-        <!-- Third Category Pictures -->    const formData = new FormData(form);
-    imprimirTargeta(formData);
+        <!-- Third Category Pictures -->    
+
         <?php
         $idCategoria = 3;
         shuffle($imagenesHome);

@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../../src/utils/utils.class.php';
+require_once __DIR__ . '/../../../src/utils/utils.class.php';
 ?>
 
 
@@ -19,29 +19,29 @@ require_once __DIR__ . '/../../src/utils/utils.class.php';
          <div class="collapse navbar-collapse navbar-right" id="menu">
             <ul class="nav navbar-nav">
 
-              <?php if (Utils::esOpcionMenuActiva('/index.php')==true || Utils::esOpcionMenuActiva('/')==true)
+              <?php if (Utils::esOpcionMenuActiva('/index')==true || Utils::esOpcionMenuActiva('/')==true)
                 echo '<li class="active lien">'; else echo '<li class=”0lien”>';?>
-              <a href="index.php">Home</a></li>
+              <a href="index">Home</a></li>
 
-              <?php if (Utils::esOpcionMenuActiva('/about.php')==true || Utils::esOpcionMenuActiva('/')==true)
+              <?php if (Utils::esOpcionMenuActiva('/about')==true || Utils::esOpcionMenuActiva('/')==true)
                 echo '<li class="active lien">'; else echo '<li class=”0lien”>';?>
-              <a href="about.php">About</a></li>
+              <a href="about">About</a></li>
 
-              <?php if (Utils::esOpcionMenuActiva('/blog.php')==true || Utils::esOpcionMenuActiva('/')==true)
+              <?php if (Utils::esOpcionMenuActiva('/blog')==true || Utils::esOpcionMenuActiva('/')==true)
                 echo '<li class="active lien">'; else echo '<li class=”0lien”>';?>
-              <a href="blog.php">Photo</a></li>
+              <a href="blog">Photo</a></li>
 
-              <?php if (Utils::esOpcionMenuActiva('/contact.php')==true || Utils::esOpcionMenuActiva('/')==true)
+              <?php if (Utils::esOpcionMenuActiva('/contact')==true || Utils::esOpcionMenuActiva('/')==true)
                 echo '<li class="active lien">'; else echo '<li class=”0lien”>';?>
-              <a href="contact.php">Contact</a></li>
+              <a href="contact">Contact</a></li>
 
-              <?php if (Utils::esOpcionMenuActiva('/galeria.php')==true || Utils::esOpcionMenuActiva('/')==true)
+              <?php if (Utils::esOpcionMenuActiva('/galeria')==true || Utils::esOpcionMenuActiva('/')==true)
                 echo '<li class="active lien">'; else echo '<li class=”0lien”>';?>
-              <a href="galeria.php">Galeria</a></li>
+              <a href="galeria">Galeria</a></li>
 
-              <?php if (Utils::esOpcionMenuActiva('/Asociados.php')==true || Utils::esOpcionMenuActiva('/')==true)
+              <?php if (Utils::esOpcionMenuActiva('/Asociados')==true || Utils::esOpcionMenuActiva('/')==true)
                 echo '<li class="active lien">'; else echo '<li class=”0lien”>';?>
-              <a href="Asociados.php">Asociados</a></li>
+              <a href="Asociados">Asociados</a></li>
 
             </ul>
          </div>

@@ -1,12 +1,13 @@
 <?php
-require_once __DIR__ . '/../src/entity/file.class.php';
-require_once __DIR__ . '/../src/exceptions/fileException.class.php';
-require_once __DIR__ . '/../src/entity/imagen.class.php';
-require_once __DIR__ . '/../src/database/connection.class.php';
-require_once __DIR__ . '/../src/database/QueryBuilder.class.php';
-require_once __DIR__ . '/../src/repository/imagenesRepository.php';
-require_once __DIR__ . '/../src/repository/categoriaRepository.php';
-require_once __DIR__.'/../src/entity/Categoria.class.php';
+require_once __DIR__ . '/../../src/entity/file.class.php';
+require_once __DIR__ . '/../../src/exceptions/fileException.class.php';
+require_once __DIR__ . '/../../src/entity/imagen.class.php';
+require_once __DIR__ . '/../../src/database/connection.class.php';
+require_once __DIR__ . '/../../src/database/QueryBuilder.class.php';
+require_once __DIR__ . '/../../src/repository/imagenesRepository.php';
+require_once __DIR__ . '/../../src/repository/categoriaRepository.php';
+require_once __DIR__.'/../../src/entity/Categoria.class.php';
+require_once __DIR__.'/../../core/bootstrap.php';
 
 $errores = [];
 $titulo = "";
@@ -14,8 +15,8 @@ $descripcion = "";
 $mensaje = "";
 
 try {
-    $config = require __DIR__ . '/../app/config.php';
-    App::bind('config', $config); // Guardamos la configuración en el contenedor de servicios
+    // $config = require __DIR__ . '/../app/config.php';
+    // App::bind('config', $config); // Guardamos la configuración en el contenedor de servicios
     $conexion = App::getConnection();
 
     //$queryBuilder = new QueryBuilder('imagenes', 'Imagen');
