@@ -1,6 +1,7 @@
 <?php
-// require_once __DIR__.'/../../src/entity/imagen.class.php';
 require_once __DIR__.'/../../src/entity/imagen.class.php';
+
+
 
 //$imagenesHome[] = new imagen()
 $imagenesHome[] = new imagen('1.jpg','First category picture',1, 1000, 500, 100);

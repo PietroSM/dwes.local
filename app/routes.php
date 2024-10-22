@@ -1,10 +1,10 @@
 <?php
-return [
-    'index' => 'app/controllers/index.php',
-    'about' => 'app/controllers/about.php',
-    'Asociados' => 'app/controllers/asociados.php',
-    'blog' => 'app/controllers/blog.php',
-    'contact' => 'app/controllers/contact.php',
-    'galeria' => 'app/controllers/galeria.php',
-    'post' => 'app/controllers/single_post.php',
-   ];
+
+$router->get('index', 'app/controllers/index.php');
+$router->get('about', 'app/controllers/about.php');
+$router->get('Asociados', 'app/controllers/asociados.php');
+$router->get('blog', 'app/controllers/blog.php');
+$router->get('contact', 'app/controllers/contact.php');
+$router->get('galeria', 'app/controllers/galeria.php');
+$router->get('post', 'app/controllers/single_post.php');
+$router->post('imagenes-galeria/nueva', 'app/controllers/nueva-imagen-galeria.php');
