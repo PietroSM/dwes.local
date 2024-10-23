@@ -1,8 +1,8 @@
 <?php
 
-require_once 'imagen.class.php';
+require_once 'Imagen.php';
 require_once 'IEntity.php';
-class imagen implements IEntity
+class Imagen implements IEntity
 {
     const RUTA_IMAGENES_PORTFOLIO = '/public/images/index/portfolio/';
     const RUTA_IMAGENES_GALERIA = '/public/images/index/gallery/';

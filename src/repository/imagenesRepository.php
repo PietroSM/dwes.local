@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__ . '/../database/QueryBuilder.class.php';
-require_once 'imagenesRepository.php';
+require_once __DIR__ . '/../database/QueryBuilder.php';
+require_once 'ImagenesRepository.php';
 
 class ImagenesRepository extends QueryBuilder
 {

@@ -1,12 +1,12 @@
 <?php
-require_once __DIR__ . '/../../src/entity/file.class.php';
-require_once __DIR__ . '/../../src/exceptions/fileException.class.php';
-require_once __DIR__ . '/../../src/entity/imagen.class.php';
-require_once __DIR__ . '/../../src/database/connection.class.php';
-require_once __DIR__ . '/../../src/database/QueryBuilder.class.php';
-require_once __DIR__ . '/../../src/repository/imagenesRepository.php';
-require_once __DIR__ . '/../../src/repository/categoriaRepository.php';
-require_once __DIR__.'/../../src/entity/Categoria.class.php';
+require_once __DIR__ . '/../../src/entity/File.php';
+require_once __DIR__ . '/../../src/exceptions/FileException.php';
+require_once __DIR__ . '/../../src/entity/Imagen.php';
+require_once __DIR__ . '/../../src/database/Connection.php';
+require_once __DIR__ . '/../../src/database/QueryBuilder.php';
+require_once __DIR__ . '/../../src/repository/ImagenesRepository.php';
+require_once __DIR__ . '/../../src/repository/CategoriaRepository.php';
+require_once __DIR__.'/../../src/entity/Categoria.php';
 require_once __DIR__.'/../../core/bootstrap.php';
 
 $errores = [];
@@ -18,12 +18,12 @@ try {
     $conexion = App::getConnection();
 
     $imagenesRepository = new ImagenesRepository();
-    $categoriaRepository = new categoriaRepository();
+    $categoriaRepository = new CategoriaRepository();
     $imagenes = $imagenesRepository->findAll();
     $categorias = $categoriaRepository->findAll();
 
     $imagenes = $imagenesRepository->findAll();
-} catch (fileException $fileException) {
+} catch (FileException $fileException) {
     $errores[] = $fileException->getMessage();
 } catch (QueryException $queryException) {
     $errores[] = $fileException->getMessage();

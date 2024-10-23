@@ -1,17 +1,16 @@
 <?php
-require_once __DIR__ . '/../../src/entity/file.class.php';
-require_once __DIR__ . '/../../src/exceptions/fileException.class.php';
+require_once __DIR__ . '/../../src/entity/File.php';
+require_once __DIR__ . '/../../src/exceptions/FileException.php';
 require_once __DIR__ . '/../../src/entity/Asociado.php';
-require_once __DIR__ . '/../../src/database/connection.class.php';
-require_once __DIR__ . '/../../src/database/connection.class.php';
-require_once __DIR__ . '/../../src/database/QueryBuilder.class.php';
-require_once __DIR__ . '/../../src/repository/asociadosRepository.php';
+require_once __DIR__ . '/../../src/database/Connection.php';
+require_once __DIR__ . '/../../src/database/QueryBuilder.php';
+require_once __DIR__ . '/../../src/repository/AsociadosRepository.php';
 require_once __DIR__.'/../../core/bootstrap.php';
 
 session_start();
 $mensaje = "Introduzca el código de seguridad.";
 $errores = [];
-$nombre = "";
+$Nombre = "";
 $descripcion = "";
 
 
@@ -52,7 +51,7 @@ try {
             }
         }
     }
-} catch (fileException $fileException) {
+} catch (FileException $fileException) {
     $errores[] = $fileException->getMessage();
 } catch (QueryException $queryException) {
     $errores[] = $fileException->getMessage();

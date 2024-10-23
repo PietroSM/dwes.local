@@ -1,12 +1,12 @@
 <?php
-require_once __DIR__ . '/../../src/entity/file.class.php';
-require_once __DIR__ . '/../../src/exceptions/fileException.class.php';
-require_once __DIR__ . '/../../src/entity/imagen.class.php';
-require_once __DIR__ . '/../../src/database/connection.class.php';
-require_once __DIR__ . '/../../src/database/QueryBuilder.class.php';
-require_once __DIR__ . '/../../src/repository/imagenesRepository.php';
+require_once __DIR__ . '/../../src/entity/File.php';
+require_once __DIR__ . '/../../src/exceptions/FileException.php';
+require_once __DIR__ . '/../../src/entity/Imagen.php';
+require_once __DIR__ . '/../../src/database/Connection.php';
+require_once __DIR__ . '/../../src/database/QueryBuilder.php';
+require_once __DIR__ . '/../../src/repository/ImagenesRepository.php';
 require_once __DIR__ . '/../../src/repository/categoriaRepository.php';
-require_once __DIR__.'/../../src/entity/Categoria.class.php';
+require_once __DIR__.'/../../src/entity/Categoria.php';
 require_once __DIR__.'/../../core/bootstrap.php';
 
 $errores = [];
@@ -27,6 +27,9 @@ try {
     $imagenGaleria = new Imagen($imagen->getFileName(),$descripcion, $categoria);
     $imagenesRepository = new ImagenesRepository();
     $imagenesRepository->guarda($imagenGaleria);
+
+    App::get('logger')->add("Se ha guardado una imagen: "
+        .$imagenGaleria->getNombre());
    } catch (FileException $fileException) {
     $errores[] = $fileException->getMessage();
    }

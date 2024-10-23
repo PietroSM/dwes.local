@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../database/QueryBuilder.class.php';
+require_once __DIR__ . '/../database/QueryBuilder.php';
 
 class AsociadosRepository extends QueryBuilder
 {

@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__.'/../../src/entity/imagen.class.php';
+require_once __DIR__.'/../../src/entity/Imagen.php';
 
 $imagenesCliente[] = new imagen('client1.jpg' ,'MISS BELLA');
 $imagenesCliente[] = new imagen('client2.jpg', 'DON PENO');

@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__.'/../../src/entity/imagen.class.php';
+require_once __DIR__.'/../../src/entity/Imagen.php';
 
 
 

@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../exceptions/fileException.class.php';
+require_once __DIR__ . '/../exceptions/FileException.php';
 class File
 {
     private $file; // Contenido del fichero que se sube al servidor
