@@ -1,5 +1,8 @@
 <?php
-require_once __DIR__.'/../entity/IEntity.php';
+namespace dwes\app\entity;
+use dwes\app\entity\IEntity;
+
+// require_once __DIR__.'/../entity/IEntity.php';
 
 class Asociado implements IEntity{
 

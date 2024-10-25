@@ -1,7 +1,6 @@
 <?php
-
-require_once 'Imagen.php';
-require_once 'IEntity.php';
+namespace dwes\app\entity;
+use dwes\app\entity\IEntity;
 class Imagen implements IEntity
 {
     const RUTA_IMAGENES_PORTFOLIO = '/public/images/index/portfolio/';

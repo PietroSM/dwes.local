@@ -1,11 +1,13 @@
 <?php
-require_once __DIR__ . '/../../src/entity/File.php';
-require_once __DIR__ . '/../../src/exceptions/FileException.php';
-require_once __DIR__ . '/../../src/entity/Asociado.php';
-require_once __DIR__ . '/../../src/database/Connection.php';
-require_once __DIR__ . '/../../src/database/QueryBuilder.php';
-require_once __DIR__ . '/../../src/repository/AsociadosRepository.php';
-require_once __DIR__.'/../../core/bootstrap.php';
+use dwes\app\exceptions\AppException;
+use dwes\app\exceptions\FileException;
+use dwes\app\exceptions\QueryException;
+use dwes\app\entity\Asociado;
+use dwes\app\utils\File;
+use dwes\core\database\Connection;
+use dwes\app\repository\AsociadosRepository;
+use dwes\core\App;
+
 
 session_start();
 $mensaje = "Introduzca el código de seguridad.";

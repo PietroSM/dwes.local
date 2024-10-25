@@ -9,7 +9,7 @@
           <hr>
         <div class="text-muted text-left">
           <?php
-            require_once __DIR__.'/../../../src/utils/utils.class.php';
+            use dwes\app\utils\Utils;
             $novaArray = Utils::extraeElementosAleatorios($imagenesLogo, 3);
 
             foreach($novaArray as $imagen){

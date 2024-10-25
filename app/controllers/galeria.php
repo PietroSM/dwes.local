@@ -1,13 +1,11 @@
 <?php
-require_once __DIR__ . '/../../src/entity/File.php';
-require_once __DIR__ . '/../../src/exceptions/FileException.php';
-require_once __DIR__ . '/../../src/entity/Imagen.php';
-require_once __DIR__ . '/../../src/database/Connection.php';
-require_once __DIR__ . '/../../src/database/QueryBuilder.php';
-require_once __DIR__ . '/../../src/repository/ImagenesRepository.php';
-require_once __DIR__ . '/../../src/repository/CategoriaRepository.php';
-require_once __DIR__.'/../../src/entity/Categoria.php';
-require_once __DIR__.'/../../core/bootstrap.php';
+use dwes\app\exceptions\AppException;
+use dwes\app\exceptions\FileException;
+use dwes\app\exceptions\QueryException;
+use dwes\app\repository\ImagenesRepository;
+use dwes\app\repository\CategoriaRepository;
+use dwes\core\App;
+
 
 $errores = [];
 $titulo = "";

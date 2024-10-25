@@ -1,6 +1,7 @@
 <?php
+namespace dwes\app\utils;
 
-//use Monolog;
+use Monolog;
 
 class MyLog
 {

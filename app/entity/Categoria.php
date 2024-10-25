@@ -1,5 +1,7 @@
 <?php
-require_once 'IEntity.php';
+namespace dwes\app\entity;
+use dwes\app\entity\IEntity;;
+// require_once 'IEntity.php';
 
 class Categoria implements IEntity{
 

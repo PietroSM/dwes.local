@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../../../src/utils/Utils.php';
+use dwes\app\utils\Utils;
 ?>
 
 

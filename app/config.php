@@ -1,4 +1,7 @@
 <?php
+namespace dwes\app;
+use PDO;
+
 return [
     'database' => [
         'name' => 'cursophp',

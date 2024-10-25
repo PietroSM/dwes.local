@@ -1,7 +1,12 @@
 <?php
-require_once __DIR__ . '/../exceptions/QueryException.php';
-require_once __DIR__ . '/../entity/Imagen.php';
-require_once __DIR__ . '/../exceptions/NotFoundException.php';
+namespace dwes\core\database;
+
+use dwes\app\exceptions\QueryException;
+use dwes\app\exceptions\NotFoundException;
+use dwes\app\entity\IEntity;
+use dwes\core\App;
+use PDO;
+use PDOException;
 
 abstract class QueryBuilder
 {

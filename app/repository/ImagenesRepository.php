@@ -1,6 +1,10 @@
 <?php
-require_once __DIR__ . '/../database/QueryBuilder.php';
-require_once 'ImagenesRepository.php';
+namespace dwes\app\repository;
+
+use dwes\core\database\QueryBuilder;
+use dwes\app\entity\Categoria;
+use dwes\app\entity\Imagen;
+
 
 class ImagenesRepository extends QueryBuilder
 {
@@ -8,7 +12,7 @@ class ImagenesRepository extends QueryBuilder
      * @param string $table
      * @param string $classEntity
      */
-    public function __construct(string $table = 'imagenes', string $classEntity = 'Imagen')
+    public function __construct(string $table = 'imagenes', string $classEntity = Imagen::class)
     {
         parent::__construct($table, $classEntity);
     }

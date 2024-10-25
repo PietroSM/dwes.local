@@ -1,4 +1,5 @@
 <?php
+namespace dwes\app\utils;
 header('Content-Type: image/png');
 session_start();
 $captcha = "";

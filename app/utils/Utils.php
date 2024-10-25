@@ -1,4 +1,5 @@
 <?php
+namespace dwes\app\utils;
 class Utils
 {
 
