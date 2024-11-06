@@ -19,9 +19,9 @@ use dwes\app\utils\Utils;
          <div class="collapse navbar-collapse navbar-right" id="menu">
             <ul class="nav navbar-nav">
 
-              <?php if (Utils::esOpcionMenuActiva('/index')==true || Utils::esOpcionMenuActiva('/')==true)
+              <?php if (Utils::esOpcionMenuActiva('/')==true || Utils::esOpcionMenuActiva('/')==true)
                 echo '<li class="active lien">'; else echo '<li class=”0lien”>';?>
-              <a href="index">Home</a></li>
+              <a href="/">Home</a></li>
 
               <?php if (Utils::esOpcionMenuActiva('/about')==true || Utils::esOpcionMenuActiva('/')==true)
                 echo '<li class="active lien">'; else echo '<li class=”0lien”>';?>

@@ -1,6 +1,4 @@
-<?php
-require_once __DIR__ . '/inicio.part.php';
-?>
+
 
 <body id="page-top">
 
@@ -81,4 +79,3 @@ require_once __DIR__ . '/inicio.part.php';
     </div>
     </div>
     <?php
-    require_once __DIR__ . '/fin.part.php';

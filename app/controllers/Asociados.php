@@ -18,8 +18,7 @@ $descripcion = "";
 
 
 try {
-    // $config = require __DIR__ . '/../app/config.php';
-    // App::bind('config', $config); // Guardamos la configuración en el contenedor de servicios
+
     $conexion = App::getConnection();
 
 

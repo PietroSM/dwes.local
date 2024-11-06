@@ -1,7 +1,4 @@
-<?php
-require_once __DIR__ . '/inicio.part.php';
-require_once __DIR__ . '/navegacion.part.php';
-?>
+
 <div class="hero hero-inner">
     <div class="container">
         <div class="row align-items-center">
@@ -104,5 +101,3 @@ require_once __DIR__ . '/navegacion.part.php';
         </div>
     </div>
 </div>
-<?php
-require_once __DIR__ . '/fin.part.php';

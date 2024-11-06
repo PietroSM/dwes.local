@@ -1,5 +1,7 @@
 <?php
+
 namespace dwes\app;
+
 use PDO;
 
 return [
@@ -13,14 +15,24 @@ return [
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
             PDO::ATTR_PERSISTENT => true
         ]
-        ],
-        'mailer' =>[
-            'smtp_server' => 'smtp.gmail.com',
-            'smtp_port' => '587',
-            'smtp_security' => 'tls',
-            'username' => 'pedrosalamora@gmail.com',
-            'password' => 'mypassword',
-            'email' => 'pedrosalamora@gmail.com',
-            'name' => 'info'
-        ]
+    ],
+    'mailer' => [
+        'smtp_server' => 'smtp.gmail.com',
+        'smtp_port' => '587',
+        'smtp_security' => 'tls',
+        'username' => 'pedrosalamora@gmail.com',
+        'password' => 'mypassword',
+        'email' => 'pedrosalamora@gmail.com',
+        'name' => 'info'
+    ],
+    'logs' => [
+        'filename' => 'curso.log',
+        'level' => \Monolog\Logger::WARNING
+    ],
+    'routes' => [
+        'filename' => 'routes.php'
+    ],
+    'project' => [
+        'namespace' => 'dwes'
+    ]
 ];

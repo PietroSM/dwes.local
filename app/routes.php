@@ -1,11 +1,11 @@
 <?php
 
-$router->get('index', 'app/controllers/index.php');
-$router->get('about', 'app/controllers/about.php');
-$router->get('Asociados', 'app/controllers/asociados.php');
-$router->get('blog', 'app/controllers/blog.php');
-$router->get('contact', 'app/controllers/contact.php');
-$router->get('galeria', 'app/controllers/galeria.php');
-$router->get('post', 'app/controllers/single_post.php');
-$router->post('imagenes-galeria/nueva', 'app/controllers/nueva-imagen-galeria.php');
+$router->get('', 'PagesController@index');
+$router->get('about', 'PagesController@about');
+$router->get('Asociados', 'AsociadosController@index');
+$router->get('blog', 'PagesController@blog');
+$router->get('contact', 'PagesController@contact');
+$router->get('galeria', 'GaleriaController@index');
+$router->get('post', 'PagesController@post');
+$router->post('imagenes-galeria/nueva', 'GaleriaController@nueva');
 $router->post('contact/enviar', 'app/controllers/contact-enviar.php');
