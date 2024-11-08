@@ -99,4 +99,16 @@ class GaleriaController
         //     )
         // );
     }
+
+
+    public function show($id)
+    {
+        $imagenesRepository = App::getRepository(ImagenesRepository::class);
+        $imagen = $imagenesRepository->find($id);
+        Response::renderView(
+            'imagen-show',
+            'layout',
+            compact('imagen', 'imagenesRepository')
+        );
+    }
 }
