@@ -15,5 +15,11 @@ class AsociadosRepository extends QueryBuilder
         parent::__construct($table, $classEntity);
     }
 
+    public function guarda(Asociado $asociado){
+        $fnGuardaAsociado = function () use ($asociado){
+            $this->save($asociado);
+        };
+        $this->executeTransaction($fnGuardaAsociado);
+    }
     
 }

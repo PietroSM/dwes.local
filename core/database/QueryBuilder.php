@@ -1,4 +1,5 @@
 <?php
+
 namespace dwes\core\database;
 
 use dwes\app\exceptions\QueryException;
@@ -60,10 +61,10 @@ abstract class QueryBuilder
      * @return array
      * @throws QueryException
      */
-    private function executeQuery(string $sql): array
+    private function executeQuery(string $sql, array $parameters = []): array
     {
         $pdoStatement = $this->connection->prepare($sql);
-        if ($pdoStatement->execute() === false)
+        if ($pdoStatement->execute($parameters) === false)
             throw new QueryException("No se ha podido ejecutar la query solicitada.");
         /* PDO::FETCH_CLASS indica que queremos que devuelva los datos en un array de clases. Los
         nombres
@@ -74,20 +75,6 @@ abstract class QueryBuilder
     }
 
 
-
-    /*$pdoStatement = $this->connection->prepare($sql);
-        if ($pdoStatement->execute() === false)
-            throw new QueryException("No se ha podido ejecutar la query solicitada.");*/
-    /* PDO::FETCH_CLASS indica que queremos que devuelva los datos en un array de clases. Los
-nombres
- de los campos de la BD deben coincidir con los nombres de los atributos de la clase.
- PDO::FETCH_PROPS_LATE hace que se llame al constructor de la clase antes que se asignen los
-valores. */
-    //     return $pdoStatement->fetchAll(
-    //         PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE,
-    //         $this->classEntity
-    //     );
-    // }
 
     /**
      * @param IEntity $entity
@@ -148,5 +135,29 @@ valores. */
         } catch (PDOException $pdoException) {
             throw new QueryException("No se ha podido actualizar el elemento con id " . $parameters['id']);
         }
+    }
+
+
+    public function findBy(array $filters): array
+    {
+        $sql = "SELECT * FROM $this->table " . $this->getFilters($filters);
+        return $this->executeQuery($sql, $filters);
+    }
+
+    public function getFilters(array $filters)
+    {
+        if (empty($filters)) return '';
+        $strFilters = [];
+        foreach ($filters as $key => $value)
+            $strFilters[] = $key . '=:' . $key;
+        return ' WHERE ' . implode(' and ', $strFilters);
+    }
+
+    public function findOneBy(array $filters): ?IEntity
+    {
+        $result = $this->findBy($filters);
+        if (count($result) > 0)
+            return $result[0];
+        return null;
     }
 }

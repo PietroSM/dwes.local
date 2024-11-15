@@ -1,7 +1,6 @@
 <?php
 use dwes\app\exceptions\NotFoundException;
 use dwes\core\App;
-use dwes\core\Router;
 use dwes\core\Request;
 
 try {

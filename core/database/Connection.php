@@ -21,7 +21,6 @@ class Connection
                 $config['options']
             );
         } catch (PDOException $PDOException) {
-            // die($PDOException->getMessage());  Se muestra la excepció como si fuera un echo y detiene la ejecución del script
             throw new AppException('No se ha podido crear la conexión a la base de datos');
         }
         return $connection;
