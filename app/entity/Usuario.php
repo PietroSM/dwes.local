@@ -21,7 +21,7 @@ class Usuario implements IEntity{
 
 
     //Getters and Setters
-    public function getId(){
+    public function getId(): ?int{
         return $this->id;
     }
 
@@ -53,6 +53,11 @@ class Usuario implements IEntity{
 
     public function toArray(): array
     {
-        return [$this->getUsername()];
+        return [
+            'id' => $this->getId(),
+            'username' => $this->getUsername(),
+            'password' => $this->getPassword(),
+            'role' => $this->getRole()
+        ];
     }
 }

@@ -16,7 +16,18 @@ class Security
         return ($valor_role_user >= $valor_role);
     }
 
-
-
+    public static function encrypt(string $password): string
+    {
+        return password_hash($password, PASSWORD_BCRYPT);
+    }
     
+    /**
+     * @param string $password
+     * @param string $bdPassword
+     * @return bool
+     */
+    public static function checkPassword(string $password, string $bdPassword): bool
+    {
+        return password_verify($password, $bdPassword);
+    }
 }

@@ -15,3 +15,7 @@ $router->get ('galeria/:id', 'GaleriaController@show', 'ROLE_USER');
 $router->get ('login', 'AuthController@login');
 $router->post('check-login', 'AuthController@checkLogin');
 $router->get ('logout', 'AuthController@logout');
+
+
+$router->get ('registro', 'AuthController@registro');
+$router->post('check-registro', 'AuthController@checkRegistro');
